@@ -11,6 +11,7 @@ const port = process.env.PORT;
 
 connectDB ()
 
+server.use (express.json());
 server.use(morgan("dev"));
 server.use("/clientes", clientesRouter);
 
