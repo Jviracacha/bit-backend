@@ -3,19 +3,19 @@ import registroModel from "../models/registro.js";
 const registroController = {
   create: async (request, response) => {
     try {
-      console.log(request.body);
+      //console.log(request.body);
       
       //destructuring de los datos de la petición
-      /* const { Name, correo, clave, foto } = request.body;
-      //creo una nueva instancia del modelo de acuerdo al esquema que definimos
+      const { name, email, clave, foto } = request.body;
+      //creo una nueva instancia del modelo de acuerdo al esquema 
       const newregistro = new registroModel({
-        Name,
-        correo,
+        name,
+        email,
         clave,
         foto,
       });
-      // guardamos en la base de datos
-      const registroCreated = await newregistro.save();*/
+      // guardamos en la base de datos para nuestra API nueva llamada registro
+      const registroCreated = await newregistro.save();
       // código de respuesta 201 para petición post + Json
       response.status(201).json({
         datosallOk: true,
@@ -35,13 +35,13 @@ const registroController = {
   readAll: async (request, response) => {
     try {
       //hacemos que mongoose vaya a la BD y traiga todos los datos
-      /*const registro = await registroModel.find();
+      const registro = await registroModel.find();
       // código de respuesta 200 para petición post + Json
       response.status(200).json({
         datosallOk: true,
         message: "Records read Successfully",
         data: registro,
-      });*/
+      });
     } catch (error) {
       response.status(500).json({
         datosallOk: false,

@@ -33,7 +33,7 @@ const clientesController = {
   readAll: async (request, response) => {
     try {
         //hacemos que mongoose vaya a la BD y traiga todos los datos
-        const clients = await clienteModel.find ()
+        const clients = await clienteModel.find ();
         // código de respuesta 200 para petición post + Json
         response.status(200).json({
         datosallOk: true,
